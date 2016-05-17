@@ -9,7 +9,7 @@ using System.Threading.Tasks;
  * Date: May 17, 2016
  * Date Modified: May 17, 2016
  * Description: Advanced Methods Demo for Lesson 2
- * Version: 0.0.4 - Added addXtoY method and unit tests
+ * Version: 0.0.5 - Added readUntilEnd
  */
 namespace COMP123_S2016_Lesson2
 {
@@ -40,6 +40,11 @@ namespace COMP123_S2016_Lesson2
 
             Console.WriteLine(x);
             Console.ReadLine();
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            readUntilEnd();
         }
         /**
          * A simple method to add two values
@@ -68,6 +73,29 @@ namespace COMP123_S2016_Lesson2
             X += Y;
 
             return X;
+        }
+        public static string[] readUntilEnd()
+        {
+            string[] inputs = new string[100];
+            int i = 0;
+
+
+
+            do
+            {
+                Console.WriteLine("Enter a value (type \"end\" to stop)");
+                inputs[i] = Console.ReadLine();
+                if (inputs[i] == "end")
+                {
+                    i = -1;
+                }
+                else
+                {
+                    i++;
+                }
+            } while (i != -1);
+
+            return inputs;
         }
     }
 }
