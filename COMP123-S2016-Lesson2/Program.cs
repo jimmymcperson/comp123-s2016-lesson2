@@ -9,7 +9,7 @@ using System.Threading.Tasks;
  * Date: May 17, 2016
  * Date Modified: May 17, 2016
  * Description: Advanced Methods Demo for Lesson 2
- * Version: 0.0.3 - Added addXandY method
+ * Version: 0.0.4 - Added addXtoY method and unit tests
  */
 namespace COMP123_S2016_Lesson2
 {
@@ -33,6 +33,13 @@ namespace COMP123_S2016_Lesson2
             int result = 0;
 
             Console.WriteLine(addXandY(x, y));
+            Console.WriteLine(result);
+            Console.WriteLine();
+
+            addYtoX(ref x, ref y);
+
+            Console.WriteLine(x);
+            Console.ReadLine();
         }
         /**
          * A simple method to add two values
@@ -46,6 +53,21 @@ namespace COMP123_S2016_Lesson2
             int result = 0;
             result = firstNumber + secondNumber;
             return result;
+        }
+
+        /**
+         * Simple method to demonstrate pass by reference with ref keyword
+         * 
+         * @method addytoX
+         * @param {ref int} X
+         * @param {ref int} Y
+         */
+
+        public static int addYtoX(ref int X, ref int Y)
+        {
+            X += Y;
+
+            return X;
         }
     }
 }
