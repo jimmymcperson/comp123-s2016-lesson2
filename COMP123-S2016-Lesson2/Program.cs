@@ -9,7 +9,7 @@ using System.Threading.Tasks;
  * Date: May 17, 2016
  * Date Modified: May 17, 2016
  * Description: Advanced Methods Demo for Lesson 2
- * Version: 0.0.5 - Added readUntilEnd
+ * Version: 0.0.6 - Added readUntilEndTestMethod and refactored codebase.
  */
 namespace COMP123_S2016_Lesson2
 {
@@ -31,6 +31,7 @@ namespace COMP123_S2016_Lesson2
             int x = 50;
             int y = 40;
             int result = 0;
+            int numberOfEntries;
 
             Console.WriteLine(addXandY(x, y));
             Console.WriteLine(result);
@@ -44,7 +45,16 @@ namespace COMP123_S2016_Lesson2
             Console.WriteLine();
             Console.WriteLine();
 
-            readUntilEnd();
+            Console.WriteLine("Enter amount of entries:");
+            int.TryParse(Console.ReadLine(), out numberOfEntries);
+            if (numberOfEntries > 0)
+            {
+                readUntilEnd(numberOfEntries);
+            }
+
+
+
+
         }
         /**
          * A simple method to add two values
@@ -74,28 +84,21 @@ namespace COMP123_S2016_Lesson2
 
             return X;
         }
-        public static string[] readUntilEnd()
+        public static int readUntilEnd(int numberOfEntries)
         {
-            string[] inputs = new string[100];
+            string[] inputs = new string[numberOfEntries];
             int i = 0;
-
-
 
             do
             {
                 Console.WriteLine("Enter a value (type \"end\" to stop)");
                 inputs[i] = Console.ReadLine();
-                if (inputs[i] == "end")
-                {
-                    i = -1;
-                }
-                else
-                {
-                    i++;
-                }
-            } while (i != -1);
+                i++;
+            }
+            while ((inputs[i - 1] != "end") && (i < numberOfEntries));
+ 
 
-            return inputs;
+            return i;
         }
     }
 }
